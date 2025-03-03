@@ -30,7 +30,8 @@ namespace TestDxfDocument
 
         public static void Main()
         {
-            DxfDocument doc = Test(@"sample.dxf"); 
+            DxfDocument doc = Test(@"test.dxf");
+            //DxfDocument doc = Test(@"sample.dxf");
 
             #region Samples for GTE classes
 
@@ -2485,7 +2486,7 @@ namespace TestDxfDocument
         private static void MTextCharacterFormatting()
         {
             DxfDocument dxf = new DxfDocument();
-            dxf.Layers.Add(new Layer("Layer1") {Color = new AciColor(Color.SkyBlue)});
+            dxf.Layers.Add(new Layer("Layer1") {Color = new AciColor(Color.SkyBlue.R, Color.SkyBlue.G, Color.SkyBlue.B) });
             MText text = new MText();
             text.Color = AciColor.Yellow;
             text.RectangleWidth = 45;
@@ -2537,7 +2538,7 @@ namespace TestDxfDocument
             opText = new MTextFormattingOptions();
             opText.FontName = "Times New Roman";
             opText.Bold = true;
-            opText.Color = new AciColor(Color.SkyBlue);
+            opText.Color = new AciColor(Color.SkyBlue.R, Color.SkyBlue.G, Color.SkyBlue.B);
             opText.Italic = true;
             opText.Underline = true;
             opText.HeightFactor = 1.6;
@@ -5738,7 +5739,7 @@ namespace TestDxfDocument
         {
             // transparencies can only be applied to entities and layer
             Layer layer = new Layer("Layer with transparency");
-            layer.Color = new AciColor(Color.MediumVioletRed);
+            layer.Color = new AciColor(Color.MediumVioletRed.R, Color.MediumVioletRed.G, Color.MediumVioletRed.B);
             // the transparency is expressed in percentage. Initially all Transparency values are initialized as ByLayer.
             layer.Transparency.Value = 50;
             // You cannot use the reserved values 0 and 100 that represents ByLayer and ByBlock. Use Transparency.ByLayer and Transparency.ByBlock
@@ -6082,7 +6083,7 @@ namespace TestDxfDocument
             Circle circle = new Circle(Vector3.Zero, 5);
             circle.Layer = new Layer("MyCircleLayer");
             // AutoCad 2000 does not support true colors, in that case an approximated color index will be used instead
-            circle.Layer.Color = new AciColor(Color.MediumSlateBlue);
+            circle.Layer.Color = new AciColor(Color.MediumSlateBlue.R, Color.MediumSlateBlue.G, Color.MediumSlateBlue.B);
             circle.XData.Add(xdata2);
             circle.XData.Add(xdata3);
 

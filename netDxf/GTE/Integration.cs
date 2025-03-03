@@ -94,7 +94,7 @@ namespace netDxf.GTE
             return rom[order - 1][0];
         }
 
-        private readonly struct Info
+        private struct Info
         {
             public readonly int NumBits;
             public readonly double[] Product;

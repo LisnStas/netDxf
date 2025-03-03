@@ -33,7 +33,7 @@ namespace netDxf
     /// <summary>
     /// Helper class for working with 'extended' enums using <see cref="StringValueAttribute"/> attributes.
     /// </summary>
-    public class StringEnum<T> where T : Enum
+    public class StringEnum<T>
     {
         #region private fields
 
@@ -114,7 +114,7 @@ namespace netDxf
                 if (attrs.Length > 0)
                 {
                     object str = Enum.Parse(this.enumType, fi.Name);
-                    values.Add((T) str, attrs[0].Value);
+                    values.Add((T)str, attrs[0].Value);
                 }
             }
 
@@ -167,7 +167,7 @@ namespace netDxf
             {
                 if (stringValues[value] != null)
                 {
-                    output = ((StringValueAttribute) stringValues[value]).Value;
+                    output = ((StringValueAttribute)stringValues[value]).Value;
                 }
             }
             else
@@ -229,7 +229,7 @@ namespace netDxf
                 {
                     if (Enum.IsDefined(type, fi.Name))
                     {
-                        output = (T) Enum.Parse(type, fi.Name);
+                        output = (T)Enum.Parse(type, fi.Name);
                     }
                     break;
                 }
