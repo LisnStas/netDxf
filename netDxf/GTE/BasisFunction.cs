@@ -166,7 +166,7 @@ namespace netDxf.GTE
     // for 1 <= i <= d.
     public class BasisFunction
     {
-        private readonly struct Key
+        private struct Key
         {
             private readonly double knotValue;
             private readonly int knotIndex;
